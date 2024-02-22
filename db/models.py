@@ -14,4 +14,6 @@ class DBProduct(Base):
     name: Mapped[str]
     description: Mapped[str]
     price: Mapped[Numeric] = mapped_column(Numeric(10, 2))
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=datetime.utcnow
+    )

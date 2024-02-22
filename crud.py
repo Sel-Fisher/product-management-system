@@ -5,7 +5,9 @@ import schemas
 from db.models import DBProduct
 
 
-def get_products_list(db: Session, per_page: int = 10, page: int = 1, product: str | None = None):
+def get_products_list(
+    db: Session, per_page: int = 10, page: int = 1, product: str | None = None
+):
     query = select(DBProduct)
     if product:
         query = query.where(DBProduct.name.icontains(product))
@@ -29,4 +31,3 @@ def create_product(db: Session, product: schemas.ProductCreate):
     db.commit()
     db.refresh(db_product)
     return db_product
-
